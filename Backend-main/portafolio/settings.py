@@ -14,6 +14,20 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 
+INSTALLED_APPS = [
+    ...,
+    'corsheaders',
+]
+
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    ...,
+]
+
+# Permitir solo tu frontend
+CORS_ALLOWED_ORIGINS = [
+    "https://tufrontend.netlify.app",
+]
 """
 Django settings for portafolio project.
 
