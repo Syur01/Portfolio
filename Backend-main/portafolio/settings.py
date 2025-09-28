@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = True
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://portfolio-pijl.onrender.com"]
 
 # Configuración de correo con Gmail
 EMAIL_HOST = config("EMAIL_HOST")
