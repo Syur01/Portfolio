@@ -1,0 +1,17 @@
+<div class="d-flex flex-column div-main min-vh-100">
+  <div class="perfil-block">
+    <app-my-profile></app-my-profile>
+  </div>
+  <div class="description-block">
+    <app-my-description></app-my-description>
+  </div>
+</div>
+<app-show-works></app-show-works>
+<app-my-contact></app-my-contact>
+<button
+  *ngIf="showScrollTop"
+  (click)="scrollToTop()"
+  class="btn btn-primary scroll-top-btn"
+>
+  ↑
+</button>

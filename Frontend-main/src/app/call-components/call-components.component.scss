@@ -1,0 +1,30 @@
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #333;
+  }
+}
+.div-main {
+  min-height: 100vh; // toda la pantalla
+}
+
+.perfil-block {
+  flex: 0 0 20%; // ocupa el 20% de la altura
+}
+
+.description-block {
+  flex: 1; // el resto (80%)
+}

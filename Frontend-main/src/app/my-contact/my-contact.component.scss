@@ -1,0 +1,85 @@
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #e0e1dd; // azul oscuro elegante
+  color: #fff;
+  text-align: center;
+
+  .contact-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: black;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: black;
+      font-size: 15px;
+    }
+  }
+
+  .contact-form {
+    background: #f5f1eb;
+    padding: 2rem;
+    border-radius: 30px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #1a1a1a; // texto más oscuro para contraste
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.2rem;
+      text-align: left;
+
+      label {
+        margin-bottom: 0.3rem; // más compacto
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #5a4634; // marrón suave
+      }
+
+      input,
+      textarea {
+        padding: 0.7rem;
+        border-radius: 30px;
+        border: 1px solid #ddd;
+        outline: none;
+        background: #fff;
+        font-size: 1rem;
+
+        &:focus {
+          border-color: #c49a6c; // marrón claro cuando se hace focus
+          box-shadow: 0 0 6px rgba(196, 154, 108, 0.4);
+        }
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      button {
+        background: #7a5c3c; // marrón elegante
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 30x;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: #a0744f;
+        }
+      }
+    }
+  }
+}
