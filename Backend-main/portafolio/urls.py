@@ -16,9 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from . import views
+
+@csrf_exempt
+def home(request):
+    if request.method == "POST":
+        return JsonResponse({"message": "Solicitud POST recibida correctamente"})
+    return JsonResponse({"status": "OK"})
 
 urlpatterns = [
-    path("", home, name="home"),  # la raíz del backend
+    path("", views.home, name="home"),  # la raíz del backend
     path('admin/', admin.site.urls),
 ]
