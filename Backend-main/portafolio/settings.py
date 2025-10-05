@@ -59,7 +59,6 @@ MIDDLEWARE = [
 
 # CORS
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
     "https://dainty-starship-d1371d.netlify.app",
 ]
 CSRF_TRUSTED_ORIGINS = [
