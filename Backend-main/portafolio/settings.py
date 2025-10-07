@@ -10,8 +10,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "portfolio-pijl.onrender.com",
+    "dainty-starship-d1371d.netlify.app",
     "localhost",
-    "127.0.0.1",
 ]
 
 # URLConf
