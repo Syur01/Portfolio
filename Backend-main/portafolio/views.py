@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 import json
+from django.views.decorators.csrf import csrf_exempt
 from .email.services import enviar_correo
 
 def contacto(request):
@@ -15,3 +16,9 @@ def contacto(request):
             return JsonResponse({"success": True})
         else:
             return JsonResponse({"success": False}, status=500)
+
+@csrf_exempt
+def home(request):
+    if request.method == "POST":
+        return JsonResponse({"message": "Solicitud POST recibida correctamente"})
+    return JsonResponse({"status": "OK"})
