@@ -8,7 +8,7 @@ def home(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body.decode("utf-8"))
-            print("Datos recibidos: " + data)
+            print("Datos recibidos: ", data)
             nombre = data.get("nombre")
             correo = data.get("correo")
             mensaje = data.get("mensaje")
