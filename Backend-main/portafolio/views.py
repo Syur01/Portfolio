@@ -1,8 +1,7 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from decouple import config
-import requests
 import json
+from .email.services import enviar_correo
 
 @csrf_exempt
 def home(request):
@@ -13,33 +12,15 @@ def home(request):
             correo = data.get("correo")
             mensaje = data.get("mensaje")
 
-            # 📨 Datos del correo
-            api_key = config("BREVO_API_KEY")
-            destinatario = config("DEFAULT_FROM_EMAIL")  # tu correo destino
-            asunto = f"Nuevo mensaje de {nombre}"
-            contenido = f"De: {nombre} <{correo}>\n\n{mensaje}"
+            if not nombre or not correo or not mensaje:
+                return JsonResponse({"error": "Faltan campos obligatorios"}, status=400)
 
-            # 🧩 Configurar payload
-            url = "https://api.brevo.com/v3/smtp/email"
-            headers = {
-                "accept": "application/json",
-                "api-key": api_key,
-                "content-type": "application/json",
-            }
-            payload = {
-                "sender": {"name": nombre, "email": correo},
-                "to": [{"email": destinatario}],
-                "subject": asunto,
-                "textContent": contenido,
-            }
+            exito = enviar_correo(nombre, correo, mensaje)
 
-            # 📤 Enviar correo a través de Brevo
-            r = requests.post(url, headers=headers, json=payload)
-
-            if r.status_code == 201:
+            if exito:
                 return JsonResponse({"success": True, "message": "Correo enviado correctamente"})
             else:
-                return JsonResponse({"success": False, "error": r.text}, status=500)
+                return JsonResponse({"success": False, "error": "No se pudo enviar el correo"}, status=500)
 
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
