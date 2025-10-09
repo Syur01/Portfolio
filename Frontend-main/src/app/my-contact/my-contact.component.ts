@@ -12,7 +12,7 @@ import { ContacServiceService } from '../service/contac/contac-service.service';
   styleUrls: ['./my-contact.component.scss'],
 })
 export class MyContactComponent {
-  formData = { name: '', email: '', message: '' };
+  formData = { nombre: '', correo: '', mensaje: '' };
   success = false;
   error = false;
 
@@ -25,7 +25,7 @@ export class MyContactComponent {
     this.contactService.sendMessage(this.formData).subscribe({
       next: () => {
         this.success = true;
-        this.formData = { name: '', email: '', message: '' };
+        this.formData = { nombre: '', correo: '', mensaje: '' };
       },
       error: (err) => {
         console.error(err);
